@@ -1,5 +1,5 @@
 # MINIMAL2-ZOIDBB
-A minimal and extensible zsh theme. Forked from [PatTheMav's original](https://github.com/PatTheMav/minimal2) Zimfw adaptation, of [subnixr's original](https://github.com/subnixr/minimal).
+A minimal and extensible zsh theme. Forked from [PatTheMav's adaptation](https://github.com/PatTheMav/minimal2) of [subnixr's original](https://github.com/subnixr/minimal).
 
 # Screencast
 [![asciicast](https://asciinema.org/a/RZthpXkg9b7KdKRGjySsC83wx.png)](https://asciinema.org/a/RZthpXkg9b7KdKRGjySsC83wx)
