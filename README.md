@@ -1,5 +1,5 @@
-# MINIMAL2
-A minimal and extensible zsh theme. Forked from [subnixr's original](https://github.com/subnixr/minimal) and adapted for [Zimfw](https://github.com/zimfw/zimfw).
+# MINIMAL2-ZOIDBB
+A minimal and extensible zsh theme. Forked from [PatTheMav's original](https://github.com/PatTheMav/minimal2) Zimfw adaptation, of [subnixr's original](https://github.com/subnixr/minimal).
 
 # Screencast
 [![asciicast](https://asciinema.org/a/RZthpXkg9b7KdKRGjySsC83wx.png)](https://asciinema.org/a/RZthpXkg9b7KdKRGjySsC83wx)
@@ -9,11 +9,11 @@ A minimal and extensible zsh theme. Forked from [subnixr's original](https://git
 1. Clone (or add as submodule) minimalzim to your `zimfw` modules directory:
 
 ```
-cd ${ZIM_HOME}/modules; git clone https://github.com/PatTheMav/minimal2.git ./minimal2
+cd ${ZIM_HOME}/modules; git clone https://github.com/zoidbb/zim-minimal-zoidbb.git ./minimal-zoidbb
 ```
 
-2. Add `minimal2` to your `zmodules` inside your `.zshrc` (just before the `prompt` module).
-3. Set the prompt theme by setting `zprompt_theme` to `minimal2`
+2. Add `minimal-zoidbb` to your `zmodules` inside your `.zshrc` (just before the `prompt` module).
+3. Set the prompt theme by setting `zprompt_theme` to `minimal-zoidbb`
 
 # Changes from original `minimal.zsh`
 
