@@ -1,1 +1,1 @@
-prompt_minimal-zoidbb_setup "${@}"
+prompt_minimal_zoidbb_setup "${@}"
