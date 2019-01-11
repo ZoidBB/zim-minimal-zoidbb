@@ -20,6 +20,8 @@ function {
     MNML_ZOIDBB_DEFAULT_USER_CHAR=
   fi
 
+  MNML_ZOIDBB_RPROMPT_SEP="|"
+
   # Global settings
   MNML_ZOIDBB_OK_COLOR="${MNML_ZOIDBB_OK_COLOR:-green}"
   MNML_ZOIDBB_ERR_COLOR="${MNML_ZOIDBB_ERR_COLOR:-red}"
@@ -31,7 +33,7 @@ function {
   MNML_ZOIDBB_NORMAL_CHAR="${MNML_ZOIDBB_NORMAL_CHAR:-·}"
 
   [ "${+MNML_ZOIDBB_PROMPT}" -eq 0 ] && MNML_ZOIDBB_PROMPT=(mnml_zoidbb_ssh mnml_zoidbb_pyenv mnml_zoidbb_status mnml_zoidbb_keymap)
-  [ "${+MNML_ZOIDBB_RPROMPT}" -eq 0 ] && MNML_ZOIDBB_RPROMPT=('mnml_zoidbb_cwd 2 0' mnml_zoidbb_git)
+  [ "${+MNML_ZOIDBB_RPROMPT}" -eq 0 ] && MNML_ZOIDBB_RPROMPT=('mnml_zoidbb_cwd 2 0' mnml_zoidbb_git mnml_zoidbb_aws)
   [ "${+MNML_ZOIDBB_INFOLN}" -eq 0 ] && MNML_ZOIDBB_INFOLN=(mnml_zoidbb_err mnml_zoidbb_jobs mnml_zoidbb_uhp mnml_zoidbb_files)
 
   [ "${+MNML_ZOIDBB_MAGICENTER}" -eq 0 ] && MNML_ZOIDBB_MAGICENTER=(mnml_zoidbb_me_dirs mnml_zoidbb_me_ls mnml_zoidbb_me_git)
@@ -78,7 +80,11 @@ mnml_zoidbb_cwd() {
 }
 
 mnml_zoidbb_git() {
-  [[ -n ${git_info} ]] && echo -n " ${(e)git_info[color]}${(e)git_info[prompt]}"
+  [[ -n ${git_info} ]] && echo -n "$MNML_ZOIDBB_RPROMPT_SEP ${(e)git_info[color]}${(e)git_info[prompt]}%f"
+}
+
+mnml_zoidbb_aws() {
+  [[ -n $AWS_PROFILE ]] && echo -n "$MNML_ZOIDBB_RPROMPT_SEP %F{248}$AWS_PROFILE%f"
 }
 
 mnml_zoidbb_uhp() {
@@ -251,7 +257,7 @@ prompt_minimal_zoidbb_help() {
     MNML_ZOIDBB_PROMPT=(mnml_zoidbb_ssh mnml_zoidbb_pyenv mnml_zoidbb_status mnml_zoidbb_keymap)
 
   - Components on the right prompt
-    MNML_ZOIDBB_RPROMPT=('mnml_zoidbb_cwd 2 0' mnml_zoidbb_git)
+    MNML_ZOIDBB_RPROMPT=('mnml_zoidbb_cwd 2 0' mnml_zoidbb_git mnml_zoidbb_aws)
 
   - Components shown on info line
     MNML_ZOIDBB_INFOLN=(mnml_zoidbb_err mnml_zoidbb_jobs mnml_zoidbb_uhp mnml_zoidbb_files)
