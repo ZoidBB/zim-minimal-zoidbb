@@ -29,7 +29,7 @@ function {
   MNML_ZOIDBB_DIV_COLOR="${MNML_ZOIDBB_DIV_COLOR:-magenta}"
 
   MNML_ZOIDBB_USER_CHAR="${MNML_ZOIDBB_USER_CHAR:-$MNML_ZOIDBB_DEFAULT_USER_CHAR}"
-  MNML_ZOIDBB_INSERT_CHAR="${MNML_ZOIDBB_INSERT_CHAR:->}"
+  MNML_ZOIDBB_INSERT_CHAR="${MNML_ZOIDBB_INSERT_CHAR:-}"
   MNML_ZOIDBB_NORMAL_CHAR="${MNML_ZOIDBB_NORMAL_CHAR:-·}"
 
   [ "${+MNML_ZOIDBB_PROMPT}" -eq 0 ] && MNML_ZOIDBB_PROMPT=(mnml_zoidbb_ssh mnml_zoidbb_pyenv mnml_zoidbb_status mnml_zoidbb_keymap)
@@ -80,11 +80,11 @@ mnml_zoidbb_cwd() {
 }
 
 mnml_zoidbb_git() {
-  [[ -n ${git_info} ]] && echo -n "$MNML_ZOIDBB_RPROMPT_SEP ${(e)git_info[color]}${(e)git_info[prompt]}%f"
+  [[ -n ${git_info} ]] && echo -n "${MNML_ZOIDBB_RPROMPT_SEP} ${(e)git_info[color]}${(e)git_info[prompt]}%f"
 }
 
 mnml_zoidbb_aws() {
-  [[ -n $AWS_PROFILE ]] && echo -n "$MNML_ZOIDBB_RPROMPT_SEP %F{248}$AWS_PROFILE%f"
+  [[ -n $AWS_PROFILE ]] && echo -n "${MNML_ZOIDBB_RPROMPT_SEP} %F{248}$AWS_PROFILE%f"
 }
 
 mnml_zoidbb_uhp() {
